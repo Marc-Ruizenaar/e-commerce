@@ -1,1 +1,1 @@
-# e-commerce
+Homepage project made using HTML, CSS, JavaScript.
