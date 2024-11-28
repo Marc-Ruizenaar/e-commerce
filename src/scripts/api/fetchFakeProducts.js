@@ -1,5 +1,5 @@
-export async function getData(json) {
-    const url = "https://fakestoreapi.com/products";
+export async function getData(urlOption) {
+    const url = `https://fakestoreapi.com/${urlOption}`;
 
     try {
         const response = await fetch(url);
