@@ -1,7 +1,7 @@
 {
   "name": "webpack_template",
   "version": "1.0.0",
-  "description": "",
+  "description": "We get the products from https://fakestoreapi.com/, cart items are saved in localstorage with the id and amount.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
