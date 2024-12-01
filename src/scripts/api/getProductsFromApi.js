@@ -2,39 +2,35 @@ import addToCart from "../cart/addToCart";
 import { getData } from "./fetchFakeProducts";
 
 export async function getProductsFromApi(products) {
+  const json = await getData(products);
 
-    const json = await getData(products);
+  console.log(json);
 
-    console.log(json);
+  const productsSelector = document.querySelector("#products");
+  productsSelector.innerHTML = "";
 
-    const productsSelector = document.querySelector("#products");
-    productsSelector.innerHTML = "";
+  for (let index = 0; index < json.length; index++) {
+    if ("content" in document.createElement("template")) {
+      const template = document.querySelector("#productrow");
 
-    for (let index = 0; index < json.length; index++) {
+      const clone = template.content.cloneNode(true);
 
-        if ("content" in document.createElement("template")) {
+      const title = clone.querySelector("#title");
+      title.textContent = json[index].title;
 
-            const template = document.querySelector("#productrow");
+      const description = clone.querySelector("#description");
+      description.textContent = json[index].description;
 
-            const clone = template.content.cloneNode(true);
+      const price = clone.querySelector("#price");
+      price.textContent = json[index].price;
 
-            const title = clone.querySelector("#title");
-            title.textContent = json[index].title;
+      const button = clone.querySelector("button");
+      button.value = json[index].id;
 
-            const description = clone.querySelector("#description");
-            description.textContent = json[index].description;
-
-            const price = clone.querySelector("#price");
-            price.textContent = json[index].price;
-
-            const button = clone.querySelector("button");
-            button.value = json[index].id;
-
-            productsSelector.appendChild(clone);
-        }
+      productsSelector.appendChild(clone);
     }
+  }
 
-    // Run add to cart button
-    addToCart();
-
+  // Run add to cart button
+  addToCart();
 }
