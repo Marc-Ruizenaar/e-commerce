@@ -1,0 +1,128 @@
+#logo-big {
+  max-width: 158px;
+  height: 25px;
+  color: var(--text-color);
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  background-size: cover;
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  cursor: auto;
+}
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  font-family: "Squada One", Fallback, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.topButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: "Lexend", Fallback, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+}
+.topMenu {
+  height: 100vh;
+  margin: 0rem 10rem;
+  display: flex;
+  place-items: center;
+}
+.topMenu > ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  transition: background-color 0.3s ease;
+  li {
+    a {
+      font-family: "Squada One", Fallback, sans-serif;
+      font-size: 4rem;
+      font-weight: normal;
+      cursor: pointer;
+    }
+  }
+}
+.shopBtn {
+  border: none;
+  background-color: transparent;
+  transition: color 0.3s ease;
+}
+.span-color {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.transparent {
+  color: rgba(255, 255, 255, 0.5);
+}
+.active {
+  color: #f4f1e0;
+}
+/*---------------------------@media screen--------------------  */
+
+@media screen and (max-width: 767px) {
+  body {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+  }
+  .topMenu {
+    margin: 80px;
+    height: 60vh;
+    margin: 10rem;
+    justify-content: center;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+  }
+  li > a > div {
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .topMenu {
+      margin: 80px;
+      height: 60vh;
+      margin: 10rem;
+      justify-content: center;
+    }
+    ul {
+      display: flex;
+      height: fit-content;
+      align-items: center;
+    }
+    li > a > div {
+      font-size: 20px;
+    }
+  }
+}

@@ -17,14 +17,14 @@ html {
 
 @font-face {
   font-family: "Lexend";
-  src: url("assets/fonts/Lexend-Variable.ttf") format("ttf");
+  src: url("assets/fonts/Lexend-Variable.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Squada One";
-  src: url("assets/fonts/SquadaOne-Regular.ttf") format("ttf");
+  src: url("assets/fonts/SquadaOne-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
