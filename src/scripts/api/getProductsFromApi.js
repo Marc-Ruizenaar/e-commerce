@@ -13,25 +13,65 @@ export async function getProductsFromApi(endpoint) {
         productCard.className = "product";
 
         // Add product details
-        productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="product-image">
-            <div class="product-middle">
-                <h5 class="product-title">${product.title}</h5>
-                <p class="product-price">$${product.price.toFixed(2)}</p>
-            </div>
-            <div class="product-footer">
-                <div class="rating" data-rating="${product.rating.rate}"></div>
-                <div class="icons">
-                    <button class="add-to-cart" value="${product.id}" title="Add to Cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button class="add-to-favorites" title="Add to Favorites">
-                        <i class="fas fa-heart"></i>
-                    </button>                
-                </div>
-            </div>
-        `;
+        // Create image element
+        const productImage = document.createElement('img');
+        productImage.src = product.image;
+        productImage.alt = product.title;
+        productImage.classList.add('product-image');
+        productCard.appendChild(productImage);
 
+        // Create middle section
+        const productMiddle = document.createElement('div');
+        productMiddle.classList.add('product-middle');
+
+        const productTitle = document.createElement('h5');
+        productTitle.classList.add('product-title');
+        productTitle.textContent = product.title;
+        productMiddle.appendChild(productTitle);
+
+        const productPrice = document.createElement('p');
+        productPrice.classList.add('product-price');
+        productPrice.textContent = `$${product.price.toFixed(2)}`;
+        productMiddle.appendChild(productPrice);
+
+        productCard.appendChild(productMiddle);
+
+        // Create footer section
+        const productFooter = document.createElement('div');
+        productFooter.classList.add('product-footer');
+
+        const ratingDiv = document.createElement('div');
+        ratingDiv.classList.add('rating');
+        ratingDiv.dataset.rating = product.rating.rate;
+        productFooter.appendChild(ratingDiv);
+
+        const iconsDiv = document.createElement('div');
+        iconsDiv.classList.add('icons');
+
+        const cartButton = document.createElement('button');
+        cartButton.classList.add('add-to-cart');
+        cartButton.value = product.id;
+        cartButton.title = 'Add to Cart';
+
+        const cartIcon = document.createElement('i');
+        cartIcon.classList.add('fas', 'fa-shopping-cart');
+        cartButton.appendChild(cartIcon);
+
+        const favoritesButton = document.createElement('button');
+        favoritesButton.classList.add('add-to-favorites');
+        favoritesButton.title = 'Add to Favorites';
+
+        const favoritesIcon = document.createElement('i');
+        favoritesIcon.classList.add('fas', 'fa-heart');
+        favoritesButton.appendChild(favoritesIcon);
+
+        iconsDiv.appendChild(cartButton);
+        iconsDiv.appendChild(favoritesButton);
+
+        productFooter.appendChild(iconsDiv);
+        productCard.appendChild(productFooter);
+
+        
         // Append the card to the container
         productsSelector.appendChild(productCard);
 
