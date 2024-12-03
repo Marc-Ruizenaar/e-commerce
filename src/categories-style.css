@@ -1,0 +1,56 @@
+
+  
+/* Style for Categories Section */
+#categories {
+    position: sticky; /* Makes it fixed at the top */
+    top: 0; /* Aligns it to the top of the viewport */
+    left: 0;
+    width: 100%; /* Stretches across the full width */
+    z-index: 1000; /* Ensures it stays above other elements */
+    background-color: #f5f1e0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 10px;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Style for Buttons */
+#categories button {
+    font-family: "Squada One", sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f1e0; /* Primary color */
+    color: #321e1d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover Effect for Buttons */
+#categories button:hover {
+    background-color: #DFB8DD; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarges the button */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+}
+
+/* Active Button State */
+#categories button:active {
+    transform: scale(0.95); /* Shrinks slightly when clicked */
+    background-color: #DFB8DD; /* Even darker for active state */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    #categories {
+        flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        padding: 10px
+    }
+
+    #categories button {
+        width: 100%; /* Buttons take full width */
+        text-align: center;
+    }
+}
