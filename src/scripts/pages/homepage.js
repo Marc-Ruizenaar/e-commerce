@@ -1,4 +1,6 @@
-import {getProductsFromApi} from "/Users/goksinbasok/Desktop/43432432/src/scripts/api/getProductsFromApi.js";
+import {getProductsFromApi} from "../api/getProductsFromApi";
+import image from "../../assets/visual_1.jpg";
+import imageTwo from "../../assets/visual_2.jpg";
 
 export async function renderHomepage() {
   const root = document.getElementById("homepage"); // The root element
@@ -7,7 +9,7 @@ export async function renderHomepage() {
         <div class="container">
           <div class="homepage-container">
             <div class="image-container">
-              <img src="src/assets/visual_1.jpg" alt="" />
+              <img src="${image}" alt="" />
             </div> 
             
             <template id="productrow">
@@ -26,7 +28,7 @@ export async function renderHomepage() {
             <div class="newsletter-container">
               <div class="newsletter-image">
                 <img
-                  src="src/assets/visual_2.jpg"
+                  src="${imageTwo}"
                   alt="Background Image"
                   class="background-image"
                 />

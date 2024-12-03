@@ -1,16 +1,21 @@
-import "./style.css";
-import "./products-style.css"
-import "./categories-style.css"
+import "./styles/footer.css";
+import "./styles/header.css";
+import "./styles/style.css";
+import "./styles/products-style.css";
+import "./styles/categories-style.css";
+import "./styles/homepage-style.css";
 import { getData } from "./scripts/api/fetchFakeProducts";
 import { productPage } from "./scripts/pages/productpage";
 import { categoriePage } from "./scripts/pages/categoriePage";
- 
-    // Product page
-    //productPage();
+import { renderHomepage } from "./scripts/pages/homepage";
+import { header } from "./scripts/header/headercomponant";
 
-    // Categorie page
-    categoriePage();
+header();
 
-    // Cart 
+// Product page
+//productPage();
 
-    // Checkout
+// Categorie page
+categoriePage();
+
+renderHomepage();
