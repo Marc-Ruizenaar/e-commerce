@@ -1,40 +1,64 @@
 import addToCart from "../cart/addToCart";
 import { getData } from "./fetchFakeProducts";
 
-export async function getProductsFromApi(products) {
-
-    const json = await getData(products);
-
-    console.log(json);
+export async function getProductsFromApi(endpoint) {
+    const products = await getData(endpoint); // Fetch all products
 
     const productsSelector = document.querySelector("#products");
-    productsSelector.innerHTML = "";
+    productsSelector.innerHTML = ""; // Clear previous content
 
-    for (let index = 0; index < json.length; index++) {
+    // Loop through each product
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "product";
 
-        if ("content" in document.createElement("template")) {
+        // Add product details
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" class="product-image">
+            <div class="product-middle">
+                <h5 class="product-title">${product.title}</h5>
+                <p class="product-price">$${product.price.toFixed(2)}</p>
+            </div>
+            <div class="product-footer">
+                <div class="rating" data-rating="${product.rating.rate}"></div>
+                <div class="icons">
+                    <button class="add-to-cart" value="${product.id}" title="Add to Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="add-to-favorites" title="Add to Favorites">
+                        <i class="fas fa-heart"></i>
+                    </button>                
+                </div>
+            </div>
+        `;
 
-            const template = document.querySelector("#productrow");
+        // Append the card to the container
+        productsSelector.appendChild(productCard);
 
-            const clone = template.content.cloneNode(true);
+        // Generate stars for the rating
+        const ratingContainer = productCard.querySelector(".rating");
+        generateStars(ratingContainer, product.rating.rate);
+    });
+}
 
-            const title = clone.querySelector("#title");
-            title.textContent = json[index].title;
+// Function to create star elements based on the rating
+function generateStars(container, rating) {
+    const fullStars = Math.floor(rating); // Number of full stars
+    const halfStar = rating % 1 >= 0.5; // Half star if rating is not a whole number
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Remaining stars
 
-            const description = clone.querySelector("#description");
-            description.textContent = json[index].description;
-
-            const price = clone.querySelector("#price");
-            price.textContent = json[index].price;
-
-            const button = clone.querySelector("button");
-            button.value = json[index].id;
-
-            productsSelector.appendChild(clone);
-        }
+    // Append full stars
+    for (let i = 0; i < fullStars; i++) {
+        container.innerHTML += `<i class="fas fa-star"></i>`;
     }
 
-    // Run add to cart button
-    addToCart();
+    // Append half star
+    if (halfStar) {
+        container.innerHTML += `<i class="fas fa-star-half-alt"></i>`;
+    }
 
+    // Append empty stars
+    for (let i = 0; i < emptyStars; i++) {
+        container.innerHTML += `<i class="far fa-star"></i>`;
+    }
 }

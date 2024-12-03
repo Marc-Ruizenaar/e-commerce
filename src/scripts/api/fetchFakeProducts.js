@@ -11,8 +11,6 @@ export async function getData(urlOption) {
 
     } catch (error) {
         console.error(error.message);
-    }
-
-    
+    }   
 }
 

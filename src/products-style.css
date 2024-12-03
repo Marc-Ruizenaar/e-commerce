@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f1e0;
+}
+
+@font-face {
+    font-family: "Lexend";
+    src: url("assets/fonts/Lexend-Variable.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* Product Grid */
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Auto-adjust columns */
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+.product {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer; /* Use appropriate cursor style */
+    
+}
+
+.product-image {
+    max-width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.product-image:hover {
+    transform: scale(1.1); /* Slightly enlarges the image */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+}
+
+.product-middle {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 5px;
+    
+}
+
+.product-title {
+    font-family: "Lexend", Arial, sans-serif;
+    font-size: 0.9rem;    
+    color: #321e1d;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    text-overflow: ellipsis;
+}
+
+
+/* Hover Effect */
+.product-title:hover {
+    transform: scale(1.1); /* Slightly enlarges the image */
+    color: #321e1d; /* Adds a shadow effect */
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.rating {
+    display: flex;
+    gap: 2px;
+}
+
+.rating i {
+    font-size: 1rem;
+    color: #ee9828; /* Gold stars */
+}
+
+.icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+.icons button .fa-shopping-cart {
+    color: #321e1d;
+}
+
+.icons button .fa-heart {
+    color: #321e1d;
+}
+
+.icons button:hover .fa-shopping-cart {
+    color: #218838;
+}
+
+.icons button:hover .fa-heart {
+    color: #c82333;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller cards on smaller screens */
+    }
+
+    .product-image {
+        height: 200px;
+    }
+
+    .product-title {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1rem;
+    }
+
+    .product-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .product-image:hover {
+        /* Ensure hover effects are defined */
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .product {
+        min-height: 300px;
+    }
+
+    .product-image {
+        height: 180px;
+    }
+
+    .product-title {
+        font-size: 0.85rem;
+    }
+
+    .product-price {
+        font-size: 0.9rem;
+    }
+
+    .product-footer {
+        gap: 3px;
+    }
+
+    .product-image:hover {
+        /* Ensure hover effects are defined */
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
