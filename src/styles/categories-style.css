@@ -1,7 +1,7 @@
 /* Style for Categories Section */
 #categories {
-  position: sticky; /* Makes it fixed at the top */
-  top: 0; /* Aligns it to the top of the viewport */
+  position: fixed; /* Makes it fixed at the top */
+  top: 120px; /* Aligns it to the top of the viewport */
   left: 0;
   width: 100%; /* Stretches across the full width */
   z-index: 1000; /* Ensures it stays above other elements */

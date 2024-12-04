@@ -4,6 +4,9 @@ import imageThree from "../../assets/img/woman-clothes.jpg";
 import imageF from "../../assets/img/man-clothes.jpg";
 import imageFi from "../../assets/img/jewelry.jpg";
 import imageSi from "../../assets/img/electronic.jpg";
+import { categoriePage } from "../pages/categoriePage";
+import { getProductsFromApi } from "../api/getProductsFromApi";
+import { productFilter } from "../filters/productFilter";
 
 export function header() {
   const header = document.getElementById("header");
@@ -56,14 +59,16 @@ export function header() {
     document.getElementById("close-btn").style.display = "none";
     document.getElementById("menu-header").style.backgroundColor = "#f3f1e0";
     document.getElementById("topMenu").style.display = "none";
-
+    document.getElementById("categories").style.display = "block";
     buttonContainer.style.backgroundImage = "none";
+
+    document.getElementById("topButtons").style.backgroundColor = "#f3f1e0";
   };
   document.getElementById("menu-btn").onclick = function () {
     document.getElementById("close-btn").style.display = "block";
     document.getElementById("menu-btn").style.display = "none";
     document.getElementById("topMenu").style.display = "flex";
-
+    document.getElementById("categories").style.display = "none";
     document.getElementById("topMenuUl").style.display = "flex";
     document.getElementById("menu-header").style.backgroundColor =
       "transparent";
@@ -90,6 +95,23 @@ export function header() {
         buttonContainer.style.backgroundImage = `url('${bgImage}')`;
         document.getElementById("topButtons").style.backgroundColor =
           "transparent";
+      });
+    });
+
+    shopBtns.forEach((button) => {
+      button.addEventListener("click", () => {
+        const productCategory = button.id;
+
+        // If all products are clicked show them all
+        if (productCategory === "allproducts") {
+          const productUrl = "products";
+
+          getProductsFromApi(productUrl);
+        } else {
+          const productUrl = `products/category/${productCategory}`;
+
+          getProductsFromApi(productUrl);
+        }
       });
     });
   });
