@@ -1,5 +1,5 @@
-import {getProductsFromApi} from "../api/getProductsFromApi";
 import { header } from "../../scripts/header/headercomponant.js";
+import addToCart from "../../scripts/cart/addToCart.js";
 
 // CAN BE CHANGED WITH TEMPLATE FROM HTML?
 
