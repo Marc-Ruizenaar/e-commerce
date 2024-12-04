@@ -20,6 +20,7 @@ export async function getProductsFromApi(endpoint) {
         productImage.classList.add('product-image');
         productCard.appendChild(productImage);
 
+                
         // Create middle section
         const productMiddle = document.createElement('div');
         productMiddle.classList.add('product-middle');
@@ -52,29 +53,14 @@ export async function getProductsFromApi(endpoint) {
         cartButton.classList.add('add-to-cart');
         cartButton.value = product.id;
         cartButton.title = 'Add to Cart';
-
-        const cartIcon = document.createElement('i');
-        cartIcon.classList.add('fas', 'fa-shopping-cart');
-        cartButton.appendChild(cartIcon);
-
-        const favoritesButton = document.createElement('button');
-        favoritesButton.classList.add('add-to-favorites');
-        favoritesButton.title = 'Add to Favorites';
-
-        const favoritesIcon = document.createElement('i');
-        favoritesIcon.classList.add('fas', 'fa-heart');
-        favoritesButton.appendChild(favoritesIcon);
+        cartButton.textContent = 'ADD TO CART'; // Change from icon to text
 
         iconsDiv.appendChild(cartButton);
-        iconsDiv.appendChild(favoritesButton);
-
         productFooter.appendChild(iconsDiv);
         productCard.appendChild(productFooter);
 
-        
         // Append the card to the container
         productsSelector.appendChild(productCard);
-
         // Generate stars for the rating
         const ratingContainer = productCard.querySelector(".rating");
         generateStars(ratingContainer, product.rating.rate);
