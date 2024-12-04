@@ -13,6 +13,16 @@ module.exports = {
   devServer: {
     watchFiles: ["./src/template.html"],
   },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"), // Serve files from 'dist'
+    },
+    port: 8080, // Specify the port on which the development server will run
+    hot: true, // Enable Hot Module Replacement (HMR) for live updates without a full reload
+    open: true, // Automatically open the default browser when the server starts
+    compress: true, // Enable gzip compression for serving files to improve performance
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
@@ -30,9 +40,8 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
 };
-
