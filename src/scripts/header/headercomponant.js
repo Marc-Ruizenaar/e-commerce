@@ -69,9 +69,6 @@ export function header() {
       "transparent";
     document.getElementById("topMenu").style.display = "flex";
   };
-  document.getElementById("cart-btn").onclick = function () {
-    window.location.href = "https://www.example.com";
-  };
 
   const shopBtns = document.querySelectorAll(".shopBtn");
 
