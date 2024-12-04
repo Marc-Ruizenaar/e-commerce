@@ -1,4 +1,6 @@
 footer {
+  font-family: "Squada One";
+  font-size: 1.2rem;
   background: var(--contrast);
   display: flex;
   flex-direction: column;

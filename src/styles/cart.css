@@ -19,7 +19,7 @@ body {
   background-color: var(--bg-color);
   text-align: center;
   position: fixed;
-  right: 0;
+  right: -100%;
   top: 0;
   flex-direction: column;
   gap: 1rem;
@@ -134,5 +134,5 @@ input::-webkit-inner-spin-button {
 }
 
 #cartContainer.showCartContainer {
-    right: -100%;
+    right: 0;
 }
