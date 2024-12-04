@@ -97,22 +97,22 @@ export function header() {
           "transparent";
       });
     });
+  });
 
-    shopBtns.forEach((button) => {
-      button.addEventListener("click", () => {
-        const productCategory = button.id;
+  shopBtns.forEach((button) => {
+    button.addEventListener("click", () => {
+      const productCategory = button.id;
 
-        // If all products are clicked show them all
-        if (productCategory === "allproducts") {
-          const productUrl = "products";
+      // If all products are clicked show them all
+      if (productCategory === "allproducts") {
+        const productUrl = "products";
 
-          getProductsFromApi(productUrl);
-        } else {
-          const productUrl = `products/category/${productCategory}`;
+        getProductsFromApi(productUrl);
+      } else {
+        const productUrl = `products/category/${productCategory}`;
 
-          getProductsFromApi(productUrl);
-        }
-      });
+        getProductsFromApi(productUrl);
+      }
     });
   });
 
