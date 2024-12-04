@@ -10,7 +10,9 @@ import {productPage} from "./scripts/pages/productpage";
 import {categoriePage} from "./scripts/pages/categoriePage";
 import {renderHomepage} from "./scripts/pages/homepage";
 import {header} from "./scripts/header/headercomponant";
-import {cartDisplay} from "./scripts/cart/cart";
+import { cartDisplay } from "./scripts/cart/cart.js";
+import { addToCart } from "./scripts/cart/addToCart.js";
+// import { renderCartItems } from "./scripts/cart/renderCartItems.js";
 import {renderCheckoutPage} from "./scripts/pages/checkoutPage";
 
 header();
@@ -23,4 +25,5 @@ cartDisplay();
 categoriePage();
 
 renderHomepage();
+// renderCartItems();
 renderCheckoutPage();
