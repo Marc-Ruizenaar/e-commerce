@@ -8,7 +8,7 @@ export async function renderHomepage() {
   if (root) {
     // Initial HTML structure
     root.innerHTML = `
-      <div class="container">
+
         <div class="homepage-container">
           <!-- First Image Section -->
           <div class="image-container">
@@ -16,10 +16,19 @@ export async function renderHomepage() {
           </div>
 
           <!-- Product Section -->
-          <div class="product" id="product-container">
-            <!-- Products will be dynamically inserted here -->
-          </div>
+           <div class="homepage-product-section">
+              <div class="shop-all-container"><h1>SHOP ALL</h1></div>
+       
+              <div class="product" id="homepage-products-container">
 
+                <!-- Products will be dynamically inserted here -->
+          
+
+              </div>
+         
+            </div>
+           
+         
           <!-- Newsletter Section -->
           <div class="newsletter-container">
             <div class="newsletter-image">
@@ -30,7 +39,7 @@ export async function renderHomepage() {
               />
             </div>
             <div class="input-content">
-              <h1>Subscribe for Exclusive News</h1>
+               <div> <h1>Subscribe for Exclusive News</h1>  </div>
               <div class="input-wrapper">
                 <input type="text" placeholder="Enter your email" />
                 <button>SIGN UP</button>
@@ -38,7 +47,7 @@ export async function renderHomepage() {
             </div>
           </div>
         </div>
-      </div>
+
     `;
 
     try {
@@ -46,7 +55,9 @@ export async function renderHomepage() {
       const products = await getData("products"); // 'products' is the URL option
 
       // Get the product container
-      const productContainer = document.getElementById("product-container");
+      const productContainer = document.getElementById(
+        "homepage-products-container"
+      );
 
       // Display only two products
       if (products && Array.isArray(products)) {
@@ -55,12 +66,20 @@ export async function renderHomepage() {
         productContainer.innerHTML = selectedProducts
           .map(
             (product) => `
-              <div class="product-card">
-                <img src="${product.image}" alt="${product.title}" />
-                <h2>${product.title}</h2>
-                <p>${product.description}</p>
-                <span>$${product.price}</span>
+             
+      
+  
+            <div class="homepage-products-card">
+                <img class="homepage-products-image" src="${product.image}" alt="${product.title}" />
+                <div class="products-card-details">
+                <p class="homepage-products.title">${product.title}</p>
+                <p class="homepage-products-price">$${product.price}</p> 
+                <p class="homepage-products-rating">$${product.price}</p> 
+                     <button class="add-to-cart-button"> ADD TO CART</button>
               </div>
+
+            </div>
+             
             `
           )
           .join(""); // Join the HTML strings for the two products
@@ -73,4 +92,27 @@ export async function renderHomepage() {
   } else {
     console.error("Root element not found!");
   }
+
+  // Function to create star elements based on the rating
+  function generateStars(container, rating) {
+    const fullStars = Math.floor(rating); // Number of full stars
+    const halfStar = rating % 1 >= 0.5; // Half star if rating is not a whole number
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Remaining stars
+
+    // Append full stars
+    for (let i = 0; i < fullStars; i++) {
+      container.innerHTML += `<i class="fas fa-star"></i>`;
+    }
+
+    // Append half star
+    if (halfStar) {
+      container.innerHTML += `<i class="fas fa-star-half-alt"></i>`;
+    }
+
+    // Append empty stars
+    for (let i = 0; i < emptyStars; i++) {
+      container.innerHTML += `<i class="far fa-star"></i>`;
+    }
+  }
+  generateStars();
 }

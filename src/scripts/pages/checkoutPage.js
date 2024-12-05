@@ -1,5 +1,5 @@
-import image from "../../assets/visual_1.jpg";
-import imageTwo from "../../assets/visual_2.jpg";
+import paypalIcon from "../../assets/img/paypal_icon.svg";
+import paypalLogo from "../../assets/img/paypal-logo.png";
 
 export async function renderCheckoutPage() {
   const root = document.getElementById("checkout-page"); // The root element
@@ -9,35 +9,70 @@ export async function renderCheckoutPage() {
       <div class="payment-container">
         <div class="details-section">
           <p class="payment-title">Payment</p>
-          <details class="details">
-            <summary>Credit Card</summary>
-            <div class="details-input">
-              <input type="number" / placeholder="Card number">
-              <div>
-                <input
-                  type="number"
-                  name=""
-                  id=""
-                  placeholder="Expiration date (MM/YY)"
-                  pattern="(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])"
-                  required
-                  maxlength="5"
-                />
-                <input
-                  type="number"
-                  name=""
-                  id=""
-                  placeholder="Security code"
-                />
-              </div>
-              <input type="text" name="" id="" placeholder="Name on card" />
-            </div>
-          </details>
+        <details class="details">
+  <summary>Credit Card</summary>
+  <div class="details-input">
+    <!-- Card Number -->
+    <div class="form-group">
+      <label for="card-number"></label>
+      <input 
+        type="text" 
+        id="card-number" 
+        name="card-number" 
+        placeholder="1234 5678 9012 3456" 
+        inputmode="numeric" 
+        pattern="\d{4} \d{4} \d{4} \d{4}" 
+        maxlength="19" 
+        required 
+      />
+    </div>
+
+    <!-- Expiration Date and Security Code -->
+    <div class="form-group">
+      <label for="expiration-date"></label>
+      <input 
+        type="text" 
+        id="expiration-date" 
+        name="expiration-date" 
+        placeholder="MM/YY" 
+        pattern="(0[1-9]|1[0-2])\/\d{2}" 
+        maxlength="4" 
+        required 
+      />
+    </div>
+    <div class="form-group">
+      <label for="security-code"></label>
+      <input 
+        type="text" 
+        id="security-code" 
+        name="security-code" 
+        placeholder="123" 
+        pattern="\d{3,4}" 
+        maxlength="3" 
+        required 
+      />
+    </div>
+
+    <!-- Name on Card -->
+    <div class="form-group">
+      <label for="name-on-card"></label>
+      <input 
+        type="text" 
+        id="name-on-card" 
+        name="name-on-card" 
+        placeholder="John Doe" 
+        required 
+      />
+    </div>
+  </div>
+</details>
+
           <details class="details details-paypal">
-            <summary>
-              Paypal <img src="assets/images/PayPal-logo.png" alt="" />
+            <summary class="paypal-summary">
+              Paypal <img src= "${paypalLogo}" class="paypal-logo" alt="" />
             </summary>
-            <img src="assets/images/paypal_icon.svg" alt="" />
+            <div class="paypal-icon"> <img src="${paypalIcon}" alt="" /></div>
+            
             <p>
               After clicking "Pay with PayPal", you will be redirected to PayPal
               to complete your purchase securely.
@@ -61,7 +96,7 @@ export async function renderCheckoutPage() {
         </div>
         <div>
           <p>Shipping</p>
-          <p>Shipping address</p>
+          <p>Enter shipping address</p>
         </div>
         <div>
           <p>Total</p>
