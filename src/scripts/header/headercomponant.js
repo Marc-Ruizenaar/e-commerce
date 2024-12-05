@@ -86,10 +86,6 @@ export function header() {
     buttonContainer.style.height = "100%";
   };
 
-  document.getElementById("cart-btn").onclick = function () {
-    window.location.href = "https://www.example.com";
-  };
-
   const shopBtns = document.querySelectorAll(".shopBtn");
 
   const buttonSpanColors = document.querySelectorAll(".span-color");
