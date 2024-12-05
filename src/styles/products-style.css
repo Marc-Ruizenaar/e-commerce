@@ -26,8 +26,7 @@ body {
     
     .product {        
         /* position: relative; */
-        border: 1px solid #ddd;
-        border-radius: 5px;
+        border: 1px solid var(--outlines-color);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -169,3 +168,4 @@ body {
     }
 
 }
+

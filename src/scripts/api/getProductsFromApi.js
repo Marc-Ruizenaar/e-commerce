@@ -1,4 +1,4 @@
-import addToCart from "../cart/addToCart";
+import { addToCart } from "../cart/addToCart";
 import { getData } from "./fetchFakeProducts";
 
 export async function getProductsFromApi(endpoint) {
@@ -51,6 +51,7 @@ export async function getProductsFromApi(endpoint) {
 
         const cartButton = document.createElement('button');
         cartButton.classList.add('add-to-cart');
+        cartButton.id = 'addToCart';
         cartButton.value = product.id;
         cartButton.title = 'Add to Cart';
         cartButton.textContent = 'ADD TO CART'; // Change from icon to text
@@ -65,6 +66,7 @@ export async function getProductsFromApi(endpoint) {
         const ratingContainer = productCard.querySelector(".rating");
         generateStars(ratingContainer, product.rating.rate);
     });
+    addToCart();
 }
 
 // Function to create star elements based on the rating
