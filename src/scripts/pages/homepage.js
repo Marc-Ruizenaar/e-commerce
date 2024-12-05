@@ -1,4 +1,4 @@
-import {getData} from "../api/fetchFakeProducts"; // Import the getData function
+import {getData} from "../api/fetchFakeProducts";
 import image from "../../assets/visual_1.jpg";
 import imageTwo from "../../assets/visual_2.jpg";
 
@@ -6,7 +6,6 @@ export async function renderHomepage() {
   const root = document.getElementById("homepage"); // The root element
 
   if (root) {
-    // Initial HTML structure
     root.innerHTML = `
 
         <div class="homepage-container">
@@ -17,17 +16,13 @@ export async function renderHomepage() {
 
           <!-- Product Section -->
            <div class="homepage-product-section">
-              <div class="shop-all-container"><h1>SHOP ALL</h1></div>
-       
-              <div class="product" id="homepage-products-container">
-
-                <!-- Products will be dynamically inserted here -->
-          
-
+              <div class="shop-all-container">
+              <h1><a href="dummy-product-page.html">SHOP ALL</a></h1>
               </div>
-         
+              <div class="product" id="homepage-products-container">
+                <!-- Products will be dynamically inserted here -->
+              </div>
             </div>
-           
          
           <!-- Newsletter Section -->
           <div class="newsletter-container">
@@ -52,7 +47,7 @@ export async function renderHomepage() {
 
     try {
       // Fetch products from the API using getData
-      const products = await getData("products"); // 'products' is the URL option
+      const products = await getData("products");
 
       // Get the product container
       const productContainer = document.getElementById(
@@ -61,28 +56,23 @@ export async function renderHomepage() {
 
       // Display only two products
       if (products && Array.isArray(products)) {
-        const selectedProducts = products.slice(0, 2); // Limit to the first two products
+        const selectedProducts = products.slice(0, 2);
 
         productContainer.innerHTML = selectedProducts
           .map(
             (product) => `
-             
-      
-  
             <div class="homepage-products-card">
                 <img class="homepage-products-image" src="${product.image}" alt="${product.title}" />
                 <div class="products-card-details">
                 <p class="homepage-products.title">${product.title}</p>
                 <p class="homepage-products-price">$${product.price}</p> 
                 <p class="homepage-products-rating">$${product.price}</p> 
-                     <button class="add-to-cart-button"> ADD TO CART</button>
+                <button class="add-to-cart-button"> ADD TO CART</button>
               </div>
-
             </div>
-             
             `
           )
-          .join(""); // Join the HTML strings for the two products
+          .join("");
       } else {
         productContainer.innerHTML = `<p>No products found.</p>`;
       }
@@ -114,5 +104,4 @@ export async function renderHomepage() {
       container.innerHTML += `<i class="far fa-star"></i>`;
     }
   }
-  generateStars();
 }
