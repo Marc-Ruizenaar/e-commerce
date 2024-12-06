@@ -98,9 +98,15 @@ body {
     display: flex;
     width: 50%;
     flex-direction: column;
-    justify-content: flex-start; /* Center horizontally */
-    align-items: flex-start; /* Center vertically */
+
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: 40px 50px;
+
+    a {
+      cursor: pointer;
+    }
+
   }
 
   .homepage-products-card {
@@ -115,9 +121,11 @@ body {
 
   .products-card-details {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    gap: 20px; /* Optional: Adds spacing between grid items */
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+
   }
 
   .homepage-products-title {
