@@ -11,21 +11,16 @@ import {productPage} from "./scripts/pages/productpage";
 import {categoriePage} from "./scripts/pages/categoriePage";
 import {renderHomepage} from "./scripts/pages/homepage";
 import {header} from "./scripts/header/headercomponant";
-import {cartDisplay} from "./scripts/cart/cart.js";
-import {addToCart} from "./scripts/cart/addToCart.js";
-// import { renderCartItems } from "./scripts/cart/renderCartItems.js";
+import { cartDisplay } from "./scripts/cart/displayCart.js";
 import {renderCheckoutPage} from "./scripts/pages/checkoutPage";
 import {footer} from "./scripts/pages/footer";
 header();
-cartDisplay();
+document.addEventListener('DOMContentLoaded', cartDisplay);
 
 // Product page
 //productPage();
 
-// Categorie page
 categoriePage();
-
 renderHomepage();
-// renderCartItems();
 renderCheckoutPage();
 footer();

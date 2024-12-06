@@ -18,6 +18,7 @@ body {
   height: 100vh;
   overflow-y: auto;
   background-color: var(--bg-color);
+  border-left: 1px solid var(--outlines-color);
   text-align: center;
   position: fixed;
   right: -100%;
@@ -31,7 +32,7 @@ body {
     font-size: 1.2rem;
     align-self: flex-end;
     &:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
   }
   .cart-products-container {
@@ -42,18 +43,22 @@ body {
     }
     .cart-product {
       border-bottom: 1px solid var(--outlines-color);
-      padding: 1rem 2rem;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       .cart-product-info {
+        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        img {
+        .cart-img {
           width: 8rem;
           height: 8rem;
-          object-fit: cover;
+          padding: 0.4rem;
+          background-color: white;
+          object-fit: contain;
+          object-position: center;
         }
         .cart-product-name {
           text-align: left;
@@ -61,25 +66,32 @@ body {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
+          justify-content: center;
+          align-items: flex-start;
           p {
             font-weight: 600;
           }
           #removeProductBtn {
+            text-align: left;
             font-family: "Lexend", Fallback, sans-serif;
             font-size: 1rem;
-            text-align: left;
             &:hover {
-                cursor: pointer;
+              cursor: pointer;
             }
           }
-          .product-quantity {
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
+          .quantity-and-price {
+            width: 22rem;
             display: flex;
             align-items: center;
-            font-size: 1rem;
-            width: 50%;
-            .quantity-btn {
+            justify-content: space-between;
+            .product-quantity {
+              border: 1px solid var(--text-color);
+              color: var(--text-color);
+              display: flex;
+              align-items: center;
+              font-size: 1rem;
+              width: 30%;
+              .quantity-btn {
                 background-color: transparent;
                 border: none;
                 padding: 0.5rem;
@@ -96,17 +108,18 @@ body {
                 outline: none;
                 flex: 2;
               }
+            }
+            #cartProductPrice {
+              font-family: "Squada One";
+              font-size: 1.4rem;
+            }
           }
         }
-      }
-      #cartProductPrice {
-        font-family: "Squada One";
-        font-size: 1.4rem;
       }
     }
   }
   .cart-checkout-info {
-    padding: 2rem;
+    padding: 1rem;
     bottom: 2rem;
     .cart-subtotal {
       display: flex;
@@ -135,5 +148,36 @@ input::-webkit-inner-spin-button {
 }
 
 #cartContainer.showCartContainer {
-    right: 0;
+  right: 0;
 }
+
+.cart-product .cart-product-info .cart-img {
+  object-fit: fill;
+}
+
+@media screen and (max-width: 600px) {
+  #cartContainer {
+    width: 100vw;
+    max-height: 100vh;
+    .cart-products-container {
+      align-self: center;
+      width: 100%;
+      .cart-product {
+        align-items: flex-end;
+        .cart-product-info {
+          width: 100%;
+          flex-direction: column;
+          .cart-product-name {
+            text-align: center;
+            margin-right: 1rem;
+            }
+            .quantity-and-price {
+              align-self: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
