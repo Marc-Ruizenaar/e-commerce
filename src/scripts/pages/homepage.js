@@ -7,44 +7,40 @@ export async function renderHomepage() {
 
   if (root) {
     root.innerHTML = `
+      <div class="homepage-container">
+        <!-- First Image Section -->
+        <div class="image-container">
+          <img src="${image}" alt="First Visual" />
+        </div>
 
-        <div class="homepage-container">
-          <!-- First Image Section -->
-          <div class="image-container">
-            <img src="${image}" alt="First Visual" />
+        <!-- Product Section -->
+        <div class="homepage-product-section">
+          <div class="shop-all-container">
+            <h1><a href="dummy-product-page.html">SHOP ALL</a></h1>
           </div>
-
-          <!-- Product Section -->
-           <div class="homepage-product-section">
-
-              <div class="shop-all-container">
-              <h1><a href="dummy-product-page.html">SHOP ALL</a></h1>
-              </div>
-              <div class="product" id="homepage-products-container">
-                <!-- Products will be dynamically inserted here -->
-              </div>
-            </div>
-
-         
-          <!-- Newsletter Section -->
-          <div class="newsletter-container">
-            <div class="newsletter-image">
-              <img
-                src="${imageTwo}"
-                alt="Newsletter Background"
-                class="background-image"
-              />
-            </div>
-            <div class="input-content">
-               <div> <h1>Subscribe for Exclusive News</h1>  </div>
-              <div class="input-wrapper">
-                <input type="text" placeholder="Enter your email" />
-                <button>SIGN UP</button>
-              </div>
-            </div>
+          <div class="product" id="homepage-products-container">
+            <!-- Products will be dynamically inserted here -->
           </div>
         </div>
 
+        <!-- Newsletter Section -->
+        <div class="newsletter-container">
+          <div class="newsletter-image">
+            <img
+              src="${imageTwo}"
+              alt="Newsletter Background"
+              class="background-image"
+            />
+          </div>
+          <div class="input-content">
+            <div><h1>Subscribe for Exclusive News</h1></div>
+            <div class="input-wrapper">
+              <input type="text" placeholder="Enter your email" />
+              <button>SIGN UP</button>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
 
     try {
@@ -63,19 +59,22 @@ export async function renderHomepage() {
         productContainer.innerHTML = selectedProducts
           .map(
             (product) => `
-
             <div class="homepage-products-card">
-                <img class="homepage-products-image" src="${product.image}" alt="${product.title}" />
-                <div class="products-card-details">
-                <p class="homepage-products.title">${product.title}</p>
-                <p class="homepage-products-price">$${product.price}</p> 
-                <p class="homepage-products-rating">$${product.price}</p> 
-
+              <img class="homepage-products-image" src="${
+                product.image
+              }" alt="${product.title}" />
+              <div class="products-card-details">
+                <p class="homepage-products-title">${product.title}</p>
+                <p class="homepage-products-price">$${product.price}</p>
+                <div class="homepage-products-rating">
+                  ${generateStarsHTML(
+                    product.rating.rate
+                  )} <!-- Generate stars here -->
+                </div>
                 <button class="add-to-cart-button"> ADD TO CART</button>
               </div>
             </div>
-
-            `
+          `
           )
           .join("");
       } else {
@@ -88,26 +87,13 @@ export async function renderHomepage() {
     console.error("Root element not found!");
   }
 
-  // Function to create star elements based on the rating
-  function generateStars(container, rating) {
-    const fullStars = Math.floor(rating); // Number of full stars
-    const halfStar = rating % 1 >= 0.5; // Half star if rating is not a whole number
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Remaining stars
+  function generateStarsHTML(rating) {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
-    // Append full stars
-    for (let i = 0; i < fullStars; i++) {
-      container.innerHTML += `<i class="fas fa-star"></i>`;
-    }
-
-    // Append half star
-    if (halfStar) {
-      container.innerHTML += `<i class="fas fa-star-half-alt"></i>`;
-    }
-
-    // Append empty stars
-    for (let i = 0; i < emptyStars; i++) {
-      container.innerHTML += `<i class="far fa-star"></i>`;
-    }
+    return (
+      "★".repeat(fullStars) + (halfStar ? "☆" : "") + "✩".repeat(emptyStars)
+    );
   }
-
 }
