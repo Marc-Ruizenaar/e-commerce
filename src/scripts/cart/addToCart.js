@@ -1,3 +1,5 @@
+const cartUpdateEvent = new CustomEvent('cartUpdate');
+
 export function addToCart() {
     const addToCartButtonSelector = document.querySelectorAll(".add-to-cart");
 
@@ -20,6 +22,7 @@ export function addToCart() {
 
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
             console.log('Updated cart:', cartItems);
+            document.dispatchEvent(cartUpdateEvent);
         });
     });
 }
