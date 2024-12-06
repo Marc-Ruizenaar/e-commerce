@@ -40,7 +40,7 @@
 /* Active Button State */
 #categories button:active {
   transform: scale(0.95); /* Shrinks slightly when clicked */
-  color: #321e1d;  
+  color: #321e1d;
 }
 
 /* Responsive Design for Smaller Screens */
