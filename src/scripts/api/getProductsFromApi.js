@@ -3,9 +3,10 @@ import { getData } from "./fetchFakeProducts";
 
 export async function getProductsFromApi(endpoint) {
     const products = await getData(endpoint); // Fetch all products
-
+    localStorage.setItem('products', JSON.stringify(products));
+    console.log('Saved products to localStorage:', products);
     const productsSelector = document.querySelector("#products");
-    productsSelector.innerHTML = ""; // Clear previous content
+    productsSelector.innerHTML = "";
 
     // Loop through each product
     products.forEach(product => {
