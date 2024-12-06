@@ -112,8 +112,7 @@ export function header() {
         document.getElementById("menu-btn").style.display = "block";
         const productCategory = button.dataset.category;
         document.getElementById("topMenuUl").style.display = "none";
-        const bgImage = button.removeAttribute("data-bg");
-        buttonContainer.style.backgroundImage = `url('${bgImage}')`;
+        buttonContainer.style.backgroundImage = "";
         document.getElementById("topMenu").style.display = "none";
         document.getElementById("categories").style.display = "block";
         document.getElementById("products").style.display = "grid";
