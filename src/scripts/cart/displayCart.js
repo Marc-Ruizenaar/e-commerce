@@ -1,6 +1,7 @@
 import { header } from "../../scripts/header/headercomponant.js";
 import { getData } from "../../scripts/api/fetchFakeProducts.js";
 import { addToCart } from "../../scripts/cart/addToCart.js";
+document.addEventListener('cartUpdate', renderCartItems);
 
 export function cartDisplay() {
   const root = document.getElementById("cartContainer");
@@ -8,7 +9,6 @@ export function cartDisplay() {
     console.error("Root element not found!");
     return;
   }
-
   const cartStructure = `
     <button id="cartCloseBtn" type="button">CLOSE</button>
     <h3>CART</h3>
@@ -35,7 +35,6 @@ export function cartDisplay() {
   setupEventListeners();
 }
 
-// check if working below
 function renderCartItems() {
   const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   console.log('Cart items:', cartItems);
@@ -86,7 +85,7 @@ function getProductDetails(productId) {
   return products.find(product => String(product.id) === String(productId));
 }
 
-function updateSubtotal(cartItems) {
+export function updateSubtotal(cartItems) {
   const subtotal = cartItems.reduce((total, item) => {
     const product = getProductDetails(item.id);
     return total + (product ? product.price * item.quantity : 0);
@@ -142,4 +141,4 @@ function removeCartItem(productId) {
   renderCartItems();
 }
 
-// UPDATE PRODUCTS LIVE, NOW THEY APPEAR FROM L.S. ONLY AFTER REFRESHING
+// remove product when quantity becomes 0 in the cart
