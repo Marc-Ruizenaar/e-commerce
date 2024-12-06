@@ -4,9 +4,9 @@
   left: 0;
   width: 100%;
   z-index: 2;
-  background-color: #f5f1e0;
+  /*background-color: #f5f1e0;*/
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
   gap: 15px;
   padding: 1rem 10px 15px 10px;
   border: 1px solid var(--outlines-color);
@@ -18,27 +18,29 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #f5f1e0; /* Primary color */
+  /*background-color: #f5f1e0; Primary color */
   color: #321e1d;
+  opacity: 70%;
   font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;
-  transition:
+  /*transition:
     background-color 0.3s ease,
-    transform 0.2s ease;
+    transform 0.2s ease;*/
 }
 
 /* Hover Effect for Buttons */
 #categories button:hover {
-  background-color: #dfb8dd; /* Darker blue on hover */
+  color: #321e1d;
+  opacity: 100%;
   transform: scale(1.05); /* Slightly enlarges the button */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
+  /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds shadow effect */
 }
 
 /* Active Button State */
 #categories button:active {
   transform: scale(0.95); /* Shrinks slightly when clicked */
-  background-color: #dfb8dd; /* Even darker for active state */
+  color: #321e1d;  
 }
 
 /* Responsive Design for Smaller Screens */

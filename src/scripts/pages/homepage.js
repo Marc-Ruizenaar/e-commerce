@@ -16,6 +16,7 @@ export async function renderHomepage() {
 
           <!-- Product Section -->
            <div class="homepage-product-section">
+
               <div class="shop-all-container">
               <h1><a href="dummy-product-page.html">SHOP ALL</a></h1>
               </div>
@@ -23,6 +24,7 @@ export async function renderHomepage() {
                 <!-- Products will be dynamically inserted here -->
               </div>
             </div>
+
          
           <!-- Newsletter Section -->
           <div class="newsletter-container">
@@ -61,15 +63,18 @@ export async function renderHomepage() {
         productContainer.innerHTML = selectedProducts
           .map(
             (product) => `
+
             <div class="homepage-products-card">
                 <img class="homepage-products-image" src="${product.image}" alt="${product.title}" />
                 <div class="products-card-details">
                 <p class="homepage-products.title">${product.title}</p>
                 <p class="homepage-products-price">$${product.price}</p> 
                 <p class="homepage-products-rating">$${product.price}</p> 
+
                 <button class="add-to-cart-button"> ADD TO CART</button>
               </div>
             </div>
+
             `
           )
           .join("");
@@ -104,4 +109,5 @@ export async function renderHomepage() {
       container.innerHTML += `<i class="far fa-star"></i>`;
     }
   }
+
 }

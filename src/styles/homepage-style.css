@@ -98,6 +98,7 @@ body {
     display: flex;
     width: 50%;
     flex-direction: column;
+
     justify-content: flex-start;
     align-items: flex-start;
     padding: 40px 50px;
@@ -105,6 +106,7 @@ body {
     a {
       cursor: pointer;
     }
+
   }
 
   .homepage-products-card {
@@ -119,9 +121,11 @@ body {
 
   .products-card-details {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 20px;
+
   }
 
   .homepage-products-title {
