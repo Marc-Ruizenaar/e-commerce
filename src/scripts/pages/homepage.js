@@ -1,4 +1,4 @@
-import {getData} from "../api/fetchFakeProducts";
+import { getData } from "../api/fetchFakeProducts";
 import image from "../../assets/visual_1.jpg";
 import imageTwo from "../../assets/visual_2.jpg";
 

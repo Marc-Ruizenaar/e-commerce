@@ -11,16 +11,23 @@ import { checkoutPage } from "../pages/checkoutPage";
 import { homePage } from "../pages/homepage";
 import { productPage } from "../pages/productpage";
 import { createFooter } from "../pages/footer";
+import { renderHomepage } from "../pages/homepage";
+
+export function body() {
+  const bodyContainer = document.getElementById("body-container");
+}
+
 export function header() {
   const header = document.getElementById("header");
-
   header.innerHTML = `
 <header>
 <div id="menu-header">
   <div id="topButtons">
     <button id="menu-btn" class="span-color">MENU</button>
     <button id="close-btn" class="span-color">CLOSE</button>
+    <a id="top-logo" href="#header">
     <img id="logo-big" class="span-color" src="${image}"></img>
+    </a>
     <button id="cart-btn" class="span-color">CART</button>
   </div>
 </div>
@@ -56,6 +63,11 @@ export function header() {
   </ul>
 </div>
 </header>`;
+
+  // document.getElementById("top-logo").onclick = function () {
+  //   renderHomepage();
+  // };
+
   const buttonContainer = document.querySelector("body");
   document.getElementById("close-btn").onclick = function () {
     document.getElementById("menu-btn").style.display = "block";
@@ -91,7 +103,15 @@ export function header() {
   const buttonSpanColors = document.querySelectorAll(".span-color");
 
   document.addEventListener("DOMContentLoaded", () => {
+    const topLogo = document.getElementById("top-logo");
+    topLogo.onclick = function () {
+      const productUrl = "products";
+
+      getProductsFromApi(productUrl);
+    };
+
     const shopBtns = document.querySelectorAll(".shopBtn");
+
     shopBtns.forEach((button) => {
       const img = new Image();
       img.src = button.getAttribute("data-bg");
@@ -124,7 +144,6 @@ export function header() {
         // If all products are clicked show them all
         if (productCategory === "allproducts") {
           const productUrl = "products";
-
           getProductsFromApi(productUrl);
         } else {
           const productUrl = `products/category/${productCategory}`;

@@ -1,3 +1,6 @@
+#body-container {
+  position: relative;
+}
 #logo-big {
   max-width: 158px;
   height: 25px;
@@ -17,6 +20,10 @@ a:active {
   text-decoration: none;
   color: inherit;
   cursor: auto;
+}
+#top-logo :hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 button {
   background: none;
