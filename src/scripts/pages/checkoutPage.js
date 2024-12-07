@@ -11,13 +11,23 @@ function renderCheckoutCart() {
     return;
   }
 
+
   finalProductContainer.innerHTML = "";
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+=======
+
+  finalProductContainer.innerHTML = "";
+
+
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+
   cartItems.forEach((item) => {
     const product = getProductDetails(item.id);
     if (!product) return;
+
 
     const cartItemHTML = `
       <div class="checkout-product" data-id="${item.id}">
@@ -30,12 +40,22 @@ function renderCheckoutCart() {
           <p>${product.title}</p>
           <p>Quantity: ${item.quantity}</p>
         </div>
+
+    const cartItemHTML = `
+      <div class="checkout-product" data-id="${item.id}">
+        <img src="${product.image}" alt="${
+      product.title
+    }" class="checkout-product-image"/>
+        <p>${product.title}</p>
+        <p>Quantity: ${item.quantity}</p>
+
         <p>Total Price: $${(product.price * item.quantity).toFixed(2)}</p>
       </div>
     `;
 
     finalProductContainer.insertAdjacentHTML("beforeend", cartItemHTML);
   });
+
 
   const total = cartItems.reduce((sum, item) => {
     const product = getProductDetails(item.id);
@@ -61,7 +81,7 @@ export async function renderCheckoutPage() {
         <details class="details">
           <summary>Credit Card</summary>
           <div class="details-input">
-            <!-- Card Number -->
+
             <div class="form-group">
               <label for="card-number"></label>
               <input 
@@ -76,7 +96,7 @@ export async function renderCheckoutPage() {
               />
             </div>
 
-            <!-- Expiration Date and Security Code -->
+
             <div class="form-group">
               <label for="expiration-date"></label>
               <input 
@@ -102,7 +122,7 @@ export async function renderCheckoutPage() {
               />
             </div>
 
-            <!-- Name on Card -->
+
             <div class="form-group">
               <label for="name-on-card"></label>
               <input 
@@ -129,10 +149,18 @@ export async function renderCheckoutPage() {
         </details>
       </div>
       <button class="pay-button">Pay now</button>
+
     </div>
     <div class="final-product-container"></div>
     </div>
     `;
+
+
+    </div>
+    <div class="final-product-container"></div>
+    </div>
+    `;
+
 
     renderCheckoutCart();
   } else {
