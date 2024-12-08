@@ -29,8 +29,10 @@ function renderCheckoutCart() {
         <div class="product-info">
           <p>${product.title}</p>
           <p>Quantity: ${item.quantity}</p>
-          <p>Total Price: $${(product.price * item.quantity).toFixed(2)}</p>
         </div>
+         <div class="total-price">
+           <p>Total Price: $${(product.price * item.quantity).toFixed(2)}</p>
+         </div>
       </div>
     `;
 
@@ -44,7 +46,7 @@ function renderCheckoutCart() {
 
   const totalHTML = `
     <div class="checkout-total">
-      <p>Total: $${total.toFixed(2)}</p>
+      <h3>Total: $${total.toFixed(2)}</h3>
     </div>
   `;
   finalProductContainer.insertAdjacentHTML("beforeend", totalHTML);

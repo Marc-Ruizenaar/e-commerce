@@ -57,6 +57,12 @@ a {
   text-decoration: none;
 }
 
+body {
+  font-family: "Lexend", Fallback, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;

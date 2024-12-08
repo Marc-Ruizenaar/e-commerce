@@ -1,4 +1,4 @@
-import { getData } from "../api/fetchFakeProducts";
+import {getData} from "../api/fetchFakeProducts";
 import image from "../../assets/visual_1.jpg";
 import imageTwo from "../../assets/visual_2.jpg";
 
@@ -60,9 +60,11 @@ export async function renderHomepage() {
           .map(
             (product) => `
             <div class="homepage-products-card">
-              <img class="homepage-products-image" src="${
-                product.image
-              }" alt="${product.title}" />
+              <div class="product-image-container">
+                <img class="homepage-products-image" src="${
+                  product.image
+                }" alt="${product.title}" />
+              </div>
               <div class="products-card-details">
                 <p class="homepage-products-title">${product.title}</p>
                 <p class="homepage-products-price">$${product.price}</p>
