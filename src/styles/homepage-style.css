@@ -118,6 +118,20 @@ body {
     border: 1px solid var(--outlines-color);
   }
 
+  .product-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 250px;
+    height: 250px;
+  }
+
+  .homepage-products-image {
+    max-height: 130px;
+    max-width: 130px;
+  }
+
   .products-card-details {
     display: grid;
 
@@ -137,11 +151,6 @@ body {
 
   .add-to-cart-button {
     justify-self: right;
-  }
-
-  .homepage-products-image {
-    max-height: 200px;
-    max-width: 200px;
   }
 
   .newsletter-container {
