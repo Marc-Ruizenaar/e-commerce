@@ -93,6 +93,14 @@ button {
   transition: color 0.3s ease;
 }
 
+.span-color {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/*---------------------------@media screen--------------------  */
+
 @media screen and (max-width: 767px) {
   body {
     background-size: contain;

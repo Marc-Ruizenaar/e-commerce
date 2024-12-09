@@ -28,3 +28,24 @@ export function addToCart() {
     });
   });
 }
+// Function to calculate and update the cart count
+export function updateCartCount(cartItems = JSON.parse(localStorage.getItem("cartItems")) || []) {
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartCountElement = document.getElementById("cart-count");
+
+  if (cartCountElement) {
+    cartCountElement.textContent = cartCount;
+  }
+}
+
+// Automatically update the cart count when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  updateCartCount(cartItems);
+});
+
+// Ensure cart count updates when cart changes
+document.addEventListener("cartUpdate", () => {
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  updateCartCount(cartItems);
+});

@@ -17,6 +17,7 @@ export function header() {
     <img id="logo-big" class="span-color" src="${image}"></img>
     </a>
     <button id="cart-btn" class="span-color">CART</button>
+    <span id="cart-count" class="cart-count">[0]</span>
   </div>
 </div>
 <div id="topMenu">
