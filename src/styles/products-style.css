@@ -4,7 +4,6 @@
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 20px;
   padding: 20px;
-  width: 100%;
   box-sizing: border-box;
 
   .product {
@@ -85,10 +84,8 @@
   }
 
   @media (max-width: 768px) {
-    .product-container {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    margin: 0 20px;
     .product-image {
       height: 200px;
     }

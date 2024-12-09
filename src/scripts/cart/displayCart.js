@@ -1,3 +1,5 @@
+import { renderCheckoutPage } from "../pages/checkoutPage";
+
 document.addEventListener("cartUpdate", renderCartItems);
 
 export function cartDisplay() {
@@ -17,11 +19,19 @@ export function cartDisplay() {
         <h3>SUBTOTAL</h3>
         <h3 id="subtotalPrice">0.00$</h3>
       </div>
-      <button id="checkoutBtn" onclick="renderCheckoutPage();">CHECKOUT</button>
+      <button id="checkoutBtn">CHECKOUT</button>
     </div>
   `;
 
   root.innerHTML = cartStructure;
+
+
+  const checkoutSelector = document.querySelector("#checkoutBtn");
+
+  checkoutSelector.addEventListener("click", () => {
+    console.log("Render");
+    renderCheckoutPage();
+  });
 
   const closeButton = document.getElementById("cartCloseBtn");
   if (closeButton) {
@@ -49,7 +59,15 @@ function renderCartItems() {
   cartProductsContainer.innerHTML = ""; // Clear the container initially
 
   if (cartItems.length === 0) {
-    // Display "empty cart" message if no items
+    // Display "empty cart" message if there are no items
+    const subtotalElement = document.getElementById("subtotalPrice");
+    subtotalElement.textContent = "$0"; 
+
+    const amountInCart = document.getElementById("cart-count");
+    amountInCart.textContent = "0"; 
+
+
+
     cartProductsContainer.innerHTML = `
       <div style="text-align: center; margin-top: 20px;">
           <h2>Your cart is empty</h2>

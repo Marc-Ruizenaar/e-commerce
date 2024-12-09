@@ -65,9 +65,16 @@ body {
 
 /* Checkout page */
 
-.checkout-container {
+#checkout-page {
   display: none;
-  /* display: grid; */
+  z-index: 999999;
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-color);
+}
+
+.checkout-container {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 150px 0;
   padding: 0 100px;
@@ -75,6 +82,13 @@ body {
     font-size: 22px;
     margin-bottom: 20px;
   }
+
+  button#closeButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2rem;
+}
 
   .payment-container {
     display: flex;

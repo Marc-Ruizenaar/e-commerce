@@ -155,3 +155,58 @@ button {
     }
   }
 }
+
+#header {
+
+  padding: 1rem 4rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 1rem;
+
+  }
+
+  .inner-header {
+    z-index: 9;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  #logo {
+    width: 160px;
+    object-fit: contain;
+  }
+  
+}
+
+div#popup {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px;
+
+  font-size: 3rem;
+  font-weight: 700;
+    a {
+      cursor: pointer;
+      z-index: 8;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.4rem;
+    }
+}
+
+

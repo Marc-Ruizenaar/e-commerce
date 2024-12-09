@@ -20,7 +20,32 @@
 
 <body>
   <div id="body-container">
-    <header id="header"></header>
+
+    <header id="header">
+      <div class="inner-header">
+        <button id="mainMenu">Menu</button>
+
+        <img id="logo">
+
+        <div class="cartButton">
+          <button id="cart-btn" class="span-color">CART
+            <span id="cart-count" class="cart-count">[0]</span>
+          </button>
+
+        </div>
+
+    </header>
+
+    <div id="popup">
+      <a href="#allproducts" data-category="allproducts" data-bg="allProductsPicture">ALL PRODUCTS</a>
+      <a href="#allproducts" data-category="women's clothing" data-bg="womanClothesImage">WOMEN'S CLOTHING</a>
+      <a href="#allproducts" data-category="men's clothing" data-bg="manClothesImage">MEN'S CLOTHING</a>
+      <a href="#allproducts" data-category="jewelery" data-bg="jewelryImage">JEWELERY</a>
+      <a href="#allproducts" data-category="electronics" data-bg="electronicImage">ELECTRONICS</a>
+    </div>
+    
+
+
     <aside id="cartContainer"></aside>
 
     <section id="homepage"></section>
@@ -46,7 +71,9 @@
     </template>
 
     <section id="checkout-page"></section>
-    
+
+    <section id="newsletter"></section>
+
     <footer id="footer"></footer>
 
     <!-- Import images so it loads in on start -->

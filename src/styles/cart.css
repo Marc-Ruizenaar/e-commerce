@@ -17,7 +17,7 @@
   border-left: 1px solid var(--outlines-color);
   text-align: center;
   position: fixed;
-  right: -100%;
+  right: -100vw;
   top: 0;
   flex-direction: column;
   gap: 1rem;

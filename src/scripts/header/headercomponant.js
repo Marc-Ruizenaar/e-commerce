@@ -16,8 +16,11 @@ export function header() {
     <a id="top-logo" href="#header">
     <img id="logo-big" class="span-color" src="${image}"></img>
     </a>
-    <button id="cart-btn" class="span-color">CART</button>
+    <div class="cartButton">
+    <button id="cart-btn" class="span-color">CART
     <span id="cart-count" class="cart-count">[0]</span>
+    </button>
+    </div>
   </div>
 </div>
 <div id="topMenu">
@@ -66,7 +69,7 @@ export function header() {
     document.getElementById("checkout-page").style.display = "block";
     document.getElementById("footer").style.display = "flex";
   };
-  
+
   document.getElementById("menu-btn").onclick = function () {
     document.getElementById("close-btn").style.display = "block";
     document.getElementById("menu-btn").style.display = "none";
@@ -78,7 +81,9 @@ export function header() {
     document.getElementById("homepage").style.display = "none";
     document.getElementById("checkout-page").style.display = "none";
     document.getElementById("footer").style.display = "none";
-    buttonContainer.style.height = "100%";
+    buttonContainer.style.height = "100vh";
+    buttonContainer.style.backgroundRepeat = "cover";
+    
   };
 
   const shopBtns = document.querySelectorAll(".shopBtn");

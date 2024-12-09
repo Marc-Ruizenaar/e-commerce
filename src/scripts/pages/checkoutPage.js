@@ -1,8 +1,9 @@
 import paypalIcon from "../../assets/img/paypal_icon.svg";
 import paypalLogo from "../../assets/img/paypal-logo.png";
-import {getProductDetails} from "../../scripts/cart/displayCart.js"; // Import existing helper function
+import { getProductDetails } from "../../scripts/cart/displayCart.js"; // Import existing helper function
 
-function renderCheckoutCart() {
+export function renderCheckoutCart() {
+
   const finalProductContainer = document.querySelector(
     ".final-product-container"
   );
@@ -22,9 +23,8 @@ function renderCheckoutCart() {
     const cartItemHTML = `
       <div class="checkout-product" data-id="${item.id}">
         <div class="product-image-container">
-          <img src="${product.image}" alt="${
-      product.title
-    }" class="checkout-product-image"/>
+          <img src="${product.image}" alt="${product.title
+      }" class="checkout-product-image"/>
         </div>
         <div class="product-info">
           <p>${product.title}</p>
@@ -60,6 +60,9 @@ export async function renderCheckoutPage() {
   if (root) {
     root.innerHTML = `
       <div class="checkout-container">
+
+      <button id="closeButton">x</button>
+
         <div class="payment-container">
           <div class="details-section">
             <p class="payment-title">Payment</*>
@@ -134,8 +137,20 @@ export async function renderCheckoutPage() {
       </div>
     `;
 
+    const checkoutPageSlector = document.querySelector("#checkout-page");
+    // console.log(checkoutPageSlector);
+    checkoutPageSlector.style.display = "block";
+
+    const closeButtonSelector = document.querySelector("#closeButton");
+
+    closeButtonSelector.addEventListener("click", () => {
+      checkoutPageSlector.style.display = "none";
+    });
+
     renderCheckoutCart();
   } else {
     console.error("Root element not found!");
   }
 }
+
+
