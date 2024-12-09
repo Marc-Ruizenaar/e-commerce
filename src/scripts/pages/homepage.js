@@ -117,7 +117,7 @@ export async function renderHomepage() {
                 </div>
                 <div class="products-card-details">
                   <p class="homepage-products-title">${product.title}</p>
-                  <p class="homepage-products-price">$${product.price}</p>
+                  <p class="homepage-products-price">${product.price}</p>
                   <div class="homepage-products-rating">
                     ${generateStarsHTML(product.rating.rate)}
                   </div>
