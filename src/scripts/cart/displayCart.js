@@ -1,6 +1,3 @@
-import { header } from "../../scripts/header/headercomponant.js";
-import { getData } from "../../scripts/api/fetchFakeProducts.js";
-import { addToCart } from "../../scripts/cart/addToCart.js";
 document.addEventListener("cartUpdate", renderCartItems);
 
 export function cartDisplay() {
@@ -20,7 +17,7 @@ export function cartDisplay() {
         <h3>SUBTOTAL</h3>
         <h3 id="subtotalPrice">0.00$</h3>
       </div>
-      <button id="checkoutBtn">CHECKOUT</button>
+      <button id="checkoutBtn" onclick="renderCheckoutPage();">CHECKOUT</button>
     </div>
   `;
 
@@ -40,24 +37,44 @@ export function cartDisplay() {
 function renderCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   console.log("Cart items:", cartItems);
+
   const cartProductsContainer = document.querySelector(".cart-products-container");
 
-  if (!cartProductsContainer) return;
+  // Check if container exists
+  if (!cartProductsContainer) {
+    console.error("Cart products container not found!");
+    return; // Exit if the container is missing
+  }
 
-  cartProductsContainer.innerHTML = "";
+  cartProductsContainer.innerHTML = ""; // Clear the container initially
 
+  if (cartItems.length === 0) {
+    // Display "empty cart" message if no items
+    cartProductsContainer.innerHTML = `
+      <div style="text-align: center; margin-top: 20px;">
+          <h2>Your cart is empty</h2>
+          <p>Browse our products and add items to your cart.</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Loop through items and render them
   cartItems.forEach((item) => {
     const product = getProductDetails(item.id);
 
-    if (!product) return;
-
-    const cartProductHTML = createCartItemHTML(item, product);
-    console.log(cartProductHTML);
-    cartProductsContainer.insertAdjacentHTML("beforeend", cartProductHTML);
+    if (product) {
+      // Render cart item if the product exists
+      const cartProductHTML = createCartItemHTML(item, product);
+      console.log(cartProductHTML);
+      cartProductsContainer.insertAdjacentHTML("beforeend", cartProductHTML);
+    }
   });
 
+  // Update subtotal
   updateSubtotal(cartItems);
 }
+
 
 function createCartItemHTML(item, product) {
   return `
@@ -75,7 +92,7 @@ function createCartItemHTML(item, product) {
             <input type="number" class="quantity-input" value="${item.quantity}" min="1" />
             <button class="quantity-btn plus">+</button>
           </div>
-          <div class="cartProductPrice">$${( product.price * item.quantity ).toFixed(2)}</div>
+          <div class="cartProductPrice">$${(product.price * item.quantity).toFixed(2)}</div>
           </div>
         </div>
       </div>
@@ -88,6 +105,7 @@ export function getProductDetails(productId) {
 }
 
 export function updateSubtotal(cartItems) {
+
   const subtotal = cartItems.reduce((total, item) => {
     const product = getProductDetails(item.id);
     return total + (product ? product.price * item.quantity : 0);

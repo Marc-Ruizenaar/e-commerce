@@ -51,16 +51,11 @@ export function header() {
   </ul>
 </div>`;
 
-  // document.getElementById("top-logo").onclick = function () {
-  //   renderHomepage();
-  // };
-
   const buttonContainer = document.querySelector("body");
 
   document.getElementById("close-btn").onclick = function () {
     document.getElementById("menu-btn").style.display = "block";
     document.getElementById("close-btn").style.display = "none";
-    document.getElementById("menu-header").style.backgroundColor = "#f3f1e0";
     document.getElementById("topMenu").style.display = "none";
     document.getElementById("categories").style.display = "block";
     buttonContainer.style.backgroundImage = "none";
@@ -70,19 +65,13 @@ export function header() {
     document.getElementById("checkout-page").style.display = "block";
     document.getElementById("footer").style.display = "flex";
   };
-
-
-
-
-
+  
   document.getElementById("menu-btn").onclick = function () {
     document.getElementById("close-btn").style.display = "block";
     document.getElementById("menu-btn").style.display = "none";
     document.getElementById("topMenu").style.display = "flex";
     document.getElementById("categories").style.display = "none";
     document.getElementById("topMenuUl").style.display = "flex";
-    document.getElementById("menu-header").style.backgroundColor =
-      "transparent";
     document.getElementById("topMenu").style.display = "flex";
     document.getElementById("products").style.display = "none";
     document.getElementById("homepage").style.display = "none";

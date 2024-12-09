@@ -5,7 +5,8 @@
   display: flex;
   gap: 15px;
   padding: 1rem 10px 15px 10px;
-  border: 1px solid var(--outlines-color);
+  border-top: 1px solid var(--outlines-color);
+  border-bottom: 1px solid var(--outlines-color);
 }
 
 #categories button {

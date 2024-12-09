@@ -54,7 +54,9 @@ function renderCheckoutCart() {
 }
 
 export async function renderCheckoutPage() {
+  console.log("CLCIKED");
   const root = document.getElementById("checkout-page");
+
   if (root) {
     root.innerHTML = `
       <div class="checkout-container">
