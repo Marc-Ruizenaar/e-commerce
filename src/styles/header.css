@@ -91,6 +91,31 @@ button {
 .active {
   color: #f4f1e0;
 }
+
+/* Cart Count Badge */
+.cart-count {
+  position: absolute;
+  top: 75px; /* Adjust to align with the icon */
+  right: 70px; /* Adjust to align with the icon */
+  background-color: #321e1d;; /* Red for a standout badge */
+  color: #ffffff;
+  font-size: 14px;
+  /*font-weight: bold;*/
+  font-family: "Squada One", sans-serif;  
+  
+  border-radius: 4px; /* Slight rounding for square brackets */
+  padding: 2px 6px; /* Space inside the brackets */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide the badge when count is 0 */
+.cart-count.hidden {
+  display: none;
+}
+
+
 /*---------------------------@media screen--------------------  */
 
 @media screen and (max-width: 767px) {
