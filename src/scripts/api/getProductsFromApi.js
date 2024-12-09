@@ -4,7 +4,7 @@ import { getData } from "./fetchFakeProducts";
 export async function getProductsFromApi(endpoint) {
     const products = await getData(endpoint); // Fetch all products
     localStorage.setItem('products', JSON.stringify(products));
-    console.log('Saved products to localStorage:', products);
+    // console.log('Saved products to localStorage:', products);
     const productsSelector = document.querySelector("#products");
     productsSelector.innerHTML = "";
 
@@ -55,7 +55,7 @@ export async function getProductsFromApi(endpoint) {
         cartButton.id = 'addToCart';
         cartButton.value = product.id;
         cartButton.title = 'Add to Cart';
-        cartButton.textContent = 'ADD TO CART'; // Change from icon to text
+        cartButton.textContent = 'ADD TO CART';
 
         iconsDiv.appendChild(cartButton);
         productFooter.appendChild(iconsDiv);
@@ -63,6 +63,7 @@ export async function getProductsFromApi(endpoint) {
 
         // Append the card to the container
         productsSelector.appendChild(productCard);
+        
         // Generate stars for the rating
         const ratingContainer = productCard.querySelector(".rating");
         generateStars(ratingContainer, product.rating.rate);

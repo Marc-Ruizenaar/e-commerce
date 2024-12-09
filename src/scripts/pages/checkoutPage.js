@@ -1,6 +1,6 @@
 import paypalIcon from "../../assets/img/paypal_icon.svg";
 import paypalLogo from "../../assets/img/paypal-logo.png";
-import {getProductDetails} from "../../scripts/cart/displayCart.js"; // Import existing helper function
+import { getProductDetails } from "../../scripts/cart/displayCart.js"; // Import existing helper function
 
 function renderCheckoutCart() {
   const finalProductContainer = document.querySelector(

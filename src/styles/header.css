@@ -1,17 +1,20 @@
 #body-container {
   position: relative;
 }
+
 #logo-big {
   max-width: 158px;
   height: 25px;
   color: var(--text-color);
 }
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   height: 100vh;
   background-size: cover;
 }
+
 a,
 a:link,
 a:visited,
@@ -21,10 +24,7 @@ a:active {
   color: inherit;
   cursor: auto;
 }
-#top-logo :hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
+
 button {
   background: none;
   color: inherit;
@@ -34,40 +34,48 @@ button {
   font-size: 1rem;
   font-weight: normal;
 }
+
+#header {
+  height: 60px;
+
+}
+#menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
 #topButtons {
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 5;
-  margin-bottom: 20px;
-  font-family: "Lexend", Fallback, sans-serif;
   font-size: 1rem;
-  font-weight: normal;
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
+  width: 100%;
   background: var(--bg-color);
-  height: 80px;
+  padding:  0 4rem;
 
-  padding: 4rem;
   #close-btn {
     display: none;
   }
 }
+
 #topMenu {
   height: 100vh;
   margin: 0rem 10rem;
   display: none;
   place-items: center;
 }
-#topMenu > ul {
+
+#topMenu>ul {
   display: none;
   list-style-type: none;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5rem;
   transition: background-color 0.3s ease;
+
   li {
     a {
       font-family: "Squada One", Fallback, sans-serif;
@@ -77,20 +85,19 @@ button {
     }
   }
 }
+
 .shopBtn {
   border: none;
   background-color: transparent;
   transition: color 0.3s ease;
 }
+
 .span-color {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.transparent {
-  color: rgba(255, 255, 255, 0.5);
-}
-.active {
-  color: #f4f1e0;
-}
+
+
+
 /*---------------------------@media screen--------------------  */
 
 @media screen and (max-width: 767px) {
@@ -102,17 +109,20 @@ button {
     flex-direction: column;
     height: 80vh;
   }
+
   .topMenu {
     margin: 80px;
     height: 60vh;
     margin: 10rem;
     justify-content: center;
   }
+
   ul {
     display: flex;
     align-items: center;
   }
-  li > a > div {
+
+  li>a>div {
     font-size: 20px;
   }
 
@@ -125,18 +135,21 @@ button {
       flex-direction: column;
       height: 100vh;
     }
+
     .topMenu {
       margin: 80px;
       height: 60vh;
       margin: 10rem;
       justify-content: center;
     }
+
     ul {
       display: flex;
       height: fit-content;
       align-items: center;
     }
-    li > a > div {
+
+    li>a>div {
       font-size: 20px;
     }
   }

@@ -1,38 +1,19 @@
-product-style.css body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f1e0;
-}
-
-@font-face {
-  font-family: "Lexend";
-  src: url("../assets/fonts/Lexend-Variable.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Product Grid */
 .product-container {
-  /* margin-top: 120px; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  /* Auto-adjust columns */
   gap: 20px;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
-  /* Ensures padding doesn't overflow */
 
   .product {
-    /* position: relative; */
     border: 1px solid var(--outlines-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     cursor: pointer;
-    /* Use appropriate cursor style */
   }
 
   .product-image {
@@ -52,7 +33,6 @@ product-style.css body {
 
   .add-to-cart:hover {
     transform: scale(1.1);
-    /* Slightly enlarges the image */
     color: #321e1d;
   }
 
@@ -97,7 +77,6 @@ product-style.css body {
   .rating i {
     font-size: 1rem;
     color: #ee9828;
-    /* Gold stars */
   }
 
   .icons {
@@ -105,11 +84,9 @@ product-style.css body {
     gap: 0.5rem;
   }
 
-  /* Responsive Design */
   @media (max-width: 768px) {
     .product-container {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      /* Smaller cards on smaller screens */
     }
 
     .product-image {

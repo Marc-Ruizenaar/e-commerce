@@ -1,14 +1,16 @@
-import {header} from "../../scripts/header/headercomponant.js";
-import {getData} from "../../scripts/api/fetchFakeProducts.js";
-import {addToCart} from "../../scripts/cart/addToCart.js";
+import { header } from "../../scripts/header/headercomponant.js";
+import { getData } from "../../scripts/api/fetchFakeProducts.js";
+import { addToCart } from "../../scripts/cart/addToCart.js";
 document.addEventListener("cartUpdate", renderCartItems);
 
 export function cartDisplay() {
   const root = document.getElementById("cartContainer");
+
   if (!root) {
     console.error("Root element not found!");
     return;
   }
+
   const cartStructure = `
     <button id="cartCloseBtn" type="button">CLOSE</button>
     <h3>CART</h3>
@@ -38,9 +40,7 @@ export function cartDisplay() {
 function renderCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   console.log("Cart items:", cartItems);
-  const cartProductsContainer = document.querySelector(
-    ".cart-products-container"
-  );
+  const cartProductsContainer = document.querySelector(".cart-products-container");
 
   if (!cartProductsContainer) return;
 
@@ -72,14 +72,10 @@ function createCartItemHTML(item, product) {
           <div class="quantity-and-price">
           <div class="product-quantity">
             <button class="quantity-btn minus">-</button>
-            <input type="number" class="quantity-input" value="${
-              item.quantity
-            }" min="1" />
+            <input type="number" class="quantity-input" value="${item.quantity}" min="1" />
             <button class="quantity-btn plus">+</button>
           </div>
-          <div class="cartProductPrice">$${(
-            product.price * item.quantity
-          ).toFixed(2)}</div>
+          <div class="cartProductPrice">$${( product.price * item.quantity ).toFixed(2)}</div>
           </div>
         </div>
       </div>
