@@ -1,4 +1,4 @@
-import imageFooter from "../../assets/team_2_logo_big.png";
+import imageFooter from "../../assets/img/team_2_logo_big.png";
 export function footer() {
   const footer = document.getElementById("footer");
 

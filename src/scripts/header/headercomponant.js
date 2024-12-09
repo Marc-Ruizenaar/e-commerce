@@ -1,27 +1,15 @@
-import image from "../../assets/team_2_logo_big.png";
+import image from "../../assets/img/team_2_logo_big.png";
 import imageTwo from "../../assets/img/main-pic.jpg";
 import imageThree from "../../assets/img/woman-clothes.jpg";
 import imageF from "../../assets/img/man-clothes.jpg";
 import imageFi from "../../assets/img/jewelry.jpg";
 import imageSi from "../../assets/img/electronic.jpg";
-import { categoriePage } from "../pages/categoriePage";
 import { getProductsFromApi } from "../api/getProductsFromApi";
-import { productFilter } from "../filters/productFilter";
-import { checkoutPage } from "../pages/checkoutPage";
-import { homePage } from "../pages/homepage";
-import { productPage } from "../pages/productpage";
-import { createFooter } from "../pages/footer";
-import { renderHomepage } from "../pages/homepage";
-
-export function body() {
-  const bodyContainer = document.getElementById("body-container");
-}
 
 export function header() {
   const header = document.getElementById("header");
   header.innerHTML = `
-<header>
-<div id="menu-header">
+<div id="menu-header" >
   <div id="topButtons">
     <button id="menu-btn" class="span-color">MENU</button>
     <button id="close-btn" class="span-color">CLOSE</button>
@@ -62,14 +50,14 @@ export function header() {
         <div class="span-color">ELECTRONICS</div>
       </a></li>
   </ul>
-</div>
-</header>`;
+</div>`;
 
   // document.getElementById("top-logo").onclick = function () {
   //   renderHomepage();
   // };
 
   const buttonContainer = document.querySelector("body");
+
   document.getElementById("close-btn").onclick = function () {
     document.getElementById("menu-btn").style.display = "block";
     document.getElementById("close-btn").style.display = "none";
@@ -83,6 +71,11 @@ export function header() {
     document.getElementById("checkout-page").style.display = "block";
     document.getElementById("footer").style.display = "flex";
   };
+
+
+
+
+
   document.getElementById("menu-btn").onclick = function () {
     document.getElementById("close-btn").style.display = "block";
     document.getElementById("menu-btn").style.display = "none";

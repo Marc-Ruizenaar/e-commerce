@@ -135,22 +135,51 @@ body {
   .products-card-details {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
     gap: 20px;
   }
 
   .homepage-products-price {
-    font-weight: 600;
     justify-self: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
   }
 
   .homepage-products-rating {
     justify-self: left;
   }
 
-  .add-to-cart-button {
+  .homepage-products-rating i {
+    font-size: 1rem;
+    color: #ee9828;
+  }
+
+  .add-to-cart {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
+    cursor: pointer;
     justify-self: right;
+  }
+
+  .add-to-cart:hover {
+    transform: scale(1.1);
+    color: #321e1d;
+  }
+
+  .homepage-products-title {
+    font-family: "Lexend", Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: #321e1d;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    text-overflow: ellipsis;
   }
 
   .newsletter-container {
@@ -187,8 +216,11 @@ body {
     align-items: center;
     gap: 25px;
   }
+
   .input-content h1 {
     color: var(--bg-color);
+    text-align: center;
+    margin: 0;
   }
 
   .input-wrapper input {
@@ -225,6 +257,13 @@ body {
       justify-content: center;
       align-items: center;
       width: 100%;
+    }
+
+    .homepage-products-title {
+      font-size: 0.9rem;
+    }
+    .homepage-products-price {
+      font-size: 1rem;
     }
   }
 }

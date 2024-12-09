@@ -28,8 +28,9 @@ function renderCheckoutCart() {
         </div>
         <div class="product-info">
           <p>${product.title}</p>
-          <p>Quantity: ${item.quantity}</p>
+         
         </div>
+         <p>Quantity: ${item.quantity}</p>
          <div class="total-price">
            <p>Total Price: $${(product.price * item.quantity).toFixed(2)}</p>
          </div>
@@ -59,7 +60,7 @@ export async function renderCheckoutPage() {
       <div class="checkout-container">
         <div class="payment-container">
           <div class="details-section">
-            <p class="payment-title">Payment</p>
+            <p class="payment-title">Payment</*>
             <details class="details">
               <summary>Credit Card</summary>
               <div class="details-input">

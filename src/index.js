@@ -6,15 +6,15 @@ import "./styles/categories-style.css";
 import "./styles/homepage-style.css";
 import "./styles/cart.css";
 import "./styles/checkout-page-style.css";
-import {getData} from "./scripts/api/fetchFakeProducts";
-import {productPage} from "./scripts/pages/productpage";
-import {categoriePage} from "./scripts/pages/categoriePage";
-import {renderHomepage} from "./scripts/pages/homepage";
-import {header} from "./scripts/header/headercomponant";
+import { categoriePage } from "./scripts/pages/categoriePage";
+import { renderHomepage } from "./scripts/pages/homepage";
+import { header } from "./scripts/header/headercomponant";
 import { cartDisplay } from "./scripts/cart/displayCart.js";
-import {renderCheckoutPage} from "./scripts/pages/checkoutPage";
-import {footer} from "./scripts/pages/footer";
+import { renderCheckoutPage } from "./scripts/pages/checkoutPage";
+import { footer } from "./scripts/pages/footer";
+
 header();
+
 document.addEventListener('DOMContentLoaded', cartDisplay);
 
 // Product page
