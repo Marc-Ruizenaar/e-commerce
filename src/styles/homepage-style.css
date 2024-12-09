@@ -156,12 +156,15 @@ body {
     color: #ee9828;
   }
 
-  .add-to-cart-btn {
+  .add-to-cart {
     font-size: 1.2rem;
+    font-weight: bold;
+    color: #321e1d;
+    cursor: pointer;
     justify-self: right;
   }
 
-  .add-to-cart-btn:hover {
+  .add-to-cart:hover {
     transform: scale(1.1);
     color: #321e1d;
   }
@@ -169,6 +172,7 @@ body {
   .homepage-products-title {
     font-family: "Lexend", Arial, sans-serif;
     font-size: 0.9rem;
+    font-weight: 900;
     color: #321e1d;
     margin: 0;
     flex: 1;
