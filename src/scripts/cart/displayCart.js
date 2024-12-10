@@ -117,6 +117,18 @@ function createCartItemHTML(item, product) {
     </div>`;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 export function getProductDetails(productId) {
   const products = JSON.parse(localStorage.getItem("products")) || [];
   return products.find((product) => String(product.id) === String(productId));
@@ -133,7 +145,32 @@ export function updateSubtotal(cartItems) {
   if (subtotalElement) {
     subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
   }
+
+  return subtotal; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function setupEventListeners() {
   document.addEventListener("click", (event) => {
