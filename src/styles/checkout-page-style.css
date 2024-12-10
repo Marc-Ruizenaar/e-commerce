@@ -88,7 +88,7 @@ body {
     right: 20px;
     top: 20px;
     font-size: 2rem;
-}
+  }
 
   .payment-container {
     display: flex;
@@ -215,7 +215,7 @@ body {
   .final-product-container {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    padding: 50px 40px 0 40px;
+    padding: 48px 40px 0 40px;
     width: 100%;
     max-height: 100%;
     align-items: flex-end;
@@ -246,9 +246,6 @@ body {
   .product-info {
     display: flex;
     flex-direction: column;
-  }
-
-  .product-info {
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -297,6 +294,7 @@ body {
   background-color: white;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {

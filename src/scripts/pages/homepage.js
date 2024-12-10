@@ -4,7 +4,7 @@ import imageTwo from "../../assets/img/visual_2.jpg";
 import {addToCart} from "../cart/addToCart";
 
 export async function renderHomepage() {
-  const root = document.getElementById("homepage"); // The root element
+  const root = document.getElementById("homepage");
 
   if (root) {
     root.innerHTML = `
@@ -33,7 +33,7 @@ export async function renderHomepage() {
       );
 
       if (products && Array.isArray(products)) {
-        const selectedProducts = products.slice(0, 2); // Show only two products
+        const selectedProducts = products.slice(0, 2);
 
         productContainer.innerHTML = selectedProducts
           .map(
@@ -59,8 +59,7 @@ export async function renderHomepage() {
           )
           .join("");
 
-        // Attach event listeners for Add to Cart
-        addToCart(); // Use the imported function to handle cart updates
+        addToCart();
       } else {
         productContainer.innerHTML = `<p>No products found.</p>`;
       }
@@ -71,7 +70,7 @@ export async function renderHomepage() {
     // SHOP ALL Navigation
     const shopAllBtn = document.getElementById("shop-all-btn");
     shopAllBtn.addEventListener("click", async (event) => {
-      event.preventDefault(); // Prevent default link behavior
+      event.preventDefault();
       const productCategory = shopAllBtn.dataset.category;
 
       const productUrl =
@@ -111,7 +110,6 @@ export async function renderHomepage() {
             )
             .join("");
 
-          // Reattach addToCart event listeners
           addToCart();
         } else {
           productContainer.innerHTML = `<p>No products found.</p>`;
@@ -125,11 +123,10 @@ export async function renderHomepage() {
   }
 
   function generateStarsHTML(rating) {
-    const fullStars = Math.floor(rating); // Number of full stars
-    const halfStar = rating % 1 >= 0.5; // Half star if rating is not a whole number
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Remaining stars
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
-    // Generate the stars HTML as a string
     return (
       `<i class="fas fa-star"></i>`.repeat(fullStars) +
       (halfStar ? `<i class="fas fa-star-half-alt"></i>` : "") +
