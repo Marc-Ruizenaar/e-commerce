@@ -42,9 +42,8 @@ export function headerCompontantTwo() {
     const links = document.querySelectorAll("#popup a");
     let hoverImage = document.createElement("img");
     hoverImage.style.position = "absolute";
-    hoverImage.style.top = "0px";
-    hoverImage.style.right = "0px";
-    hoverImage.style.maxWidth = "100%";
+    hoverImage.style.inset = "0px";
+    hoverImage.style.width = "100%";
     hoverImage.style.height = "100%";
     hoverImage.style.display = "none";
     hoverImage.style.zIndex = "1";
